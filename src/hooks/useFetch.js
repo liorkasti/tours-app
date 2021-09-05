@@ -15,12 +15,13 @@ export default function useFetch() {
       .then(data => {
         const response = data.data[0].Promotions;
         response.forEach((promotion, i) => {
-          // console.log('promotion: ', promotion);
+          console.log('promotion: ', promotion.Img);
           result.push({
             key: i,
             id: promotion.Id,
             title: promotion.Title,
-            img: promotion.Img //TODO: .indexOf("{0}") >= 0 REPLACE BY "Maximal”"
+            // img: promotion.Img //TODO: .indexOf("{0}") >= 0 REPLACE BY "Maximal"
+            img: promotion.Img.replaceAll("{0}", "Maximal")
           })
         })
 
