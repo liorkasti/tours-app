@@ -1,6 +1,6 @@
 # Guess The Word Game
 ## Description
-A react app using ES6 Hooks, Redux and random-words API
+A react app using ES6 Hooks and Redux
 ## 🚀 Quick start
 
 1.  
@@ -21,7 +21,6 @@ A react app using ES6 Hooks, Redux and random-words API
     ```
 
 ### Official Docs
-This Application is currently extended with the following plugins.
 * [Redux](https://redux.js.org)
 _______________________________________________
 
@@ -30,9 +29,9 @@ _______________________________________________
 | Number | Description |
 | ------ | ------ |
 | 1 | Add filter action
-| 2 | Replace string that contains "{0} BY "Maximal"
+| 2 | Add a promotion card model
 | 3 | Mobile responsive ui
-| 4 | Add modelization and improve reusable
+| 4 | Enhance Grid ui and reusable code
 | 5 | Add testing
 
 Enjoy! thank you.

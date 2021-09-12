@@ -1,10 +1,8 @@
-import { PROMOTIONS } from './types';
+import { ActionTypes } from "../constants/types";
 
-export const fetchData = (data) => {
+export const setProducts = (products) => {
   return {
-    type: PROMOTIONS,
-    payload: {
-      data
-    },
+    type: ActionTypes.SET_PRODUCTS,
+    payload: products,
   };
 };

@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setProducts } from "../redux/actions/actions";
 
 const baseURL = "https://api.eshet.com/LandingPage/GetPromotions?pathname=/organized";
 
@@ -7,24 +10,23 @@ export default function useFetch() {
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
   const [errorFetchMessage, setErrorFetchMessage] = useState('');
+  const dispatch = useDispatch();
 
-  const getData = () => {
+  const getData = async () => {
     const result = [];
 
-    axios.get(baseURL)
+    await axios.get(baseURL)
       .then(data => {
         const response = data.data[0].Promotions;
         response.forEach((promotion, i) => {
-          console.log('promotion: ', promotion.Img);
           result.push({
-            key: i,
+            index: i,
             id: promotion.Id,
             title: promotion.Title,
-            // img: promotion.Img //TODO: .indexOf("{0}") >= 0 REPLACE BY "Maximal"
             img: promotion.Img.replaceAll("{0}", "Maximal")
           })
         })
-
+        dispatch(setProducts(result));
         setLoaded(true)
         setData(result);
       })
